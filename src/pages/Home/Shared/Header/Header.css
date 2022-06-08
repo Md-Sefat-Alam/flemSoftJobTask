@@ -1,0 +1,8 @@
+.headerContent {
+  height: 112px;
+  width: 1116px;
+}
+.MuiOutlinedInput-notchedOutline {
+  border: none !important;
+  border-left: 1px solid gray !important;
+}

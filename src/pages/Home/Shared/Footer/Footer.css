@@ -1,0 +1,12 @@
+.footerWrapper {
+  width: 1160px;
+  min-height: 400px;
+}
+.footerBottom {
+  height: 88px;
+  width: 1160px;
+}
+
+.footerContent {
+  width: 284px;
+}

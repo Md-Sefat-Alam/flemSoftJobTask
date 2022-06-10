@@ -1,0 +1,46 @@
+.slider_item_1 {
+  grid-area: slider_item_1;
+  height: 564px;
+}
+.slider_item_2 {
+  grid-area: slider_item_2;
+}
+.slider_item_3 {
+  grid-area: slider_item_3;
+}
+.slider_item_4 {
+  grid-area: slider_item_4;
+}
+.slider_item_5 {
+  grid-area: slider_item_5;
+}
+.slider_item_6 {
+  grid-area: slider_item_6;
+}
+.slider_item_7 {
+  grid-area: slider_item_7;
+}
+.slider_item_8 {
+  grid-area: slider_item_8;
+}
+.slider_item_9 {
+  grid-area: slider_item_9;
+}
+
+.sliderContainer {
+  display: grid;
+  grid-template-areas:
+    "slider_item_1 slider_item_2 slider_item_2 slider_item_2 slider_item_3  slider_item_3"
+    "slider_item_1 slider_item_2 slider_item_2 slider_item_2 slider_item_4  slider_item_4"
+    "slider_item_1 slider_item_5 slider_item_6 slider_item_7 slider_item_8 slider_item_9";
+  gap: 24px;
+  padding: 10px;
+  margin: 20px;
+}
+.sliderContainer > div {
+  background-color: #f5f5f5;
+}
+
+/* .sliderContainer:nth-child(1) {
+  height: 30px;
+} */

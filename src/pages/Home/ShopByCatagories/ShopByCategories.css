@@ -1,0 +1,11 @@
+.categoryBoxSelected {
+  border: 1px solid greenyellow;
+}
+.categoryBoxSelected::before {
+  content: ">";
+  font-size: 30px;
+  position: absolute;
+  bottom: -28px;
+  color: greenyellow;
+  transform: rotate(90deg);
+}

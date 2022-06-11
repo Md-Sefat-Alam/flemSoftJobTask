@@ -137,7 +137,7 @@ const HeaderMenu = () => {
             <Link className="px-2" to={"/home"}>
               <li>Home</li>
             </Link>
-            <Link className="px-2" to={"/"}>
+            <Link className="px-2" to={"/home/product"}>
               <li>New Product</li>
             </Link>
             <Link className="px-2" to="/">

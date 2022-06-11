@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ShopByCategoriesProductView = ({ productDetails }) => {
-  const { image, title, price, rating, productStatus } = productDetails;
+  const { id, image, title, price, rating, productStatus } = productDetails;
 
   return (
-    <div>
+    <Link to={`/home/product/${id}`}>
       <div
         style={{ height: "172px", width: "172px" }}
         className="relative rounded-md bg-gray-100 flex justify-center items-evenly"
@@ -45,7 +46,7 @@ const ShopByCategoriesProductView = ({ productDetails }) => {
           by <span className="text-blue-500">Co. Ltd Minie Li</span>
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

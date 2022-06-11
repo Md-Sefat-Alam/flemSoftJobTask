@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import HomeSlider from "../HomeSlider/HomeSlider";
 import ShopByCatagories from "../ShopByCatagories/ShopByCatagories";
 
@@ -11,6 +12,7 @@ const Home = () => {
       <section style={{ width: "1160px", margin: "0px auto" }}>
         <ShopByCatagories />
       </section>
+      <Outlet />
     </div>
   );
 };

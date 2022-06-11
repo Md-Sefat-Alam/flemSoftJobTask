@@ -97,7 +97,7 @@ const ShopByCatagories = () => {
   }, []);
   return (
     <div>
-      <h3>Shop By Categories</h3>
+      <h3 className="text-xl font-bold">Shop By Categories</h3>
       <div ref={categoryContainer} className="grid grid-cols-6 gap-10 my-10">
         <div
           onClick={(e) => handleCategoryShow(e, "men's clothing")}

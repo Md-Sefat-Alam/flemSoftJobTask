@@ -1,6 +1,9 @@
 .categoryBoxSelected {
   border: 1px solid greenyellow;
 }
+/* .categoryBoxSelected > p {
+  color: greenyellow;
+} */
 .categoryBoxSelected::before {
   content: ">";
   font-size: 30px;

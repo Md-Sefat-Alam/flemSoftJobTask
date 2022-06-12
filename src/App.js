@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./App.css";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import ProductView from "./pages/ProductView/ProductView";
 import TopHeader from "./pages/Shared/TopHeader/TopHeader";
 import Header from "./pages/Shared/Header/Header";
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home />}>
             <Route
-              path="product/:id"
+              path="product/:productId"
               element={<ProductView open={open} setOpen={setOpen} />}
             />
           </Route>

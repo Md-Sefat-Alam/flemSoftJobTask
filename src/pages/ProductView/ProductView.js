@@ -15,7 +15,7 @@ const style = {
   borderRadius: 2,
   bgcolor: "background.paper",
   boxShadow: 24,
-  p: 4,
+  p: 3,
 };
 
 export default function ProductView() {
@@ -60,7 +60,7 @@ export default function ProductView() {
                     <img
                       style={{ maxHeight: "368px", maxWidth: "368px" }}
                       src={product.image}
-                      alt=""
+                      alt={product.title}
                     />
                   </div>
                   <div className="flex justify-between">
@@ -93,23 +93,35 @@ export default function ProductView() {
                     <p className="text-xl font-bold py-2">
                       ${parseFloat(product.price)}
                     </p>
-                    <p>Code: Apple iPad Pro 11" (2020) Wifi 128Gb Silver</p>
-                    <p>
-                      Category:{" "}
-                      <span style={{ color: "yellowgreen" }}>Technology</span>
-                    </p>
-                    <p>
-                      KeyWord:{" "}
-                      <span style={{ color: "yellowgreen" }}>
-                        Apple, Technology, Ipad
-                      </span>
-                    </p>
-                    <ul className="list-disc">
-                      <li>Screen: LED-Backlit, 11Inch</li>
-                      <li>Chipset/ CPU: Apple A12Z Bionic 2.3Ghz</li>
-                      <li>RAM: 128Gb</li>
-                      <li>Operating system: iOS 13</li>
-                    </ul>
+                    <div
+                      style={{ width: "", height: "250px" }}
+                      className="overflow-y-scroll bg-slate-50 p-2"
+                    >
+                      <p>Code: Apple iPad Pro 11" (2020) Wifi 128Gb Silver</p>
+                      <p>
+                        Category:{" "}
+                        <span style={{ color: "yellowgreen" }}>
+                          {product.category}
+                        </span>
+                      </p>
+                      <p>
+                        KeyWord:{" "}
+                        <span style={{ color: "yellowgreen" }}>
+                          {product.title.split(" ").map((single) => {
+                            let desData = "";
+                            if (single.length > 3) {
+                              desData += single + " ";
+                            }
+                            return desData;
+                          }) +
+                            "," +
+                            product.category}
+                        </span>
+                      </p>
+                      <ul className="list-disc">
+                        <li>{product.description}</li>
+                      </ul>
+                    </div>
                   </div>
                   {/* end top text section */}
                   <div>

@@ -4,6 +4,7 @@ import HomeSlider from "../HomeSlider/HomeSlider";
 import PromoProduct from "../PromoProduct/PromoProduct";
 import HotDeal from "../ShopByCatagories/HotDeal";
 import ShopByCatagories from "../ShopByCatagories/ShopByCatagories";
+import TechnologySection from "../TechnologySection/TechnologySection";
 
 const Home = () => {
   return (
@@ -28,6 +29,12 @@ const Home = () => {
         <PromoProduct />
       </section>
       {/* promo products */}
+      <section
+        style={{ width: "1160px", margin: "0px auto", paddingBottom: "30px" }}
+      >
+        <TechnologySection />
+      </section>
+      {/* end Technology */}
     </div>
   );
 };

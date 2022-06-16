@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { luxuryFoodData } from "./data";
 
 const useAllAppData = () => {
   const [products, setProducts] = useState([]);
@@ -15,6 +16,7 @@ const useAllAppData = () => {
         if (electronicsProducts.length > 0) {
           electronicsProducts[0]["productStatus"] = "new";
           electronicsProducts[1]["productStatus"] = "sold out";
+          electronicsProducts[2]["discount"] = 15;
           electronicsProducts[electronicsProducts.length - 1]["productStatus"] =
             "new";
         }
@@ -29,6 +31,7 @@ const useAllAppData = () => {
         if (electronicsProducts1.length > 0) {
           electronicsProducts1[0]["productStatus"] = "new";
           electronicsProducts1[1]["productStatus"] = "sold out";
+          electronicsProducts1[2]["discount"] = 10;
           electronicsProducts1[electronicsProducts1.length - 1][
             "productStatus"
           ] = "new";
@@ -44,6 +47,7 @@ const useAllAppData = () => {
         if (electronicsProducts2.length > 0) {
           electronicsProducts2[0]["productStatus"] = "new";
           electronicsProducts2[1]["productStatus"] = "sold out";
+          electronicsProducts2[2]["discount"] = 5;
           electronicsProducts2[electronicsProducts2.length - 1][
             "productStatus"
           ] = "new";
@@ -59,11 +63,20 @@ const useAllAppData = () => {
         if (electronicsProducts3.length > 0) {
           electronicsProducts3[0]["productStatus"] = "new";
           electronicsProducts3[1]["productStatus"] = "sold out";
+          electronicsProducts3[2]["discount"] = 15;
           electronicsProducts3[electronicsProducts3.length - 1][
             "productStatus"
           ] = "new";
         }
         return electronicsProducts3;
+      case "luxury food":
+        const electronicsProducts4 = [];
+        products.forEach(
+          (product) =>
+            product.category === "luxury food" &&
+            electronicsProducts4.push(product)
+        );
+        return electronicsProducts4;
       default:
         return [];
     }
@@ -72,7 +85,10 @@ const useAllAppData = () => {
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        data.push(...luxuryFoodData);
+        setProducts(data);
+      });
   }, []);
   return {
     products,

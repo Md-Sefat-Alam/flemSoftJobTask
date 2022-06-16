@@ -41,6 +41,7 @@ const ShopByCatagories = () => {
         );
         electronicsProducts[0]["productStatus"] = "new";
         electronicsProducts[1]["productStatus"] = "sold out";
+        electronicsProducts[2]["discount"] = 15;
         electronicsProducts[electronicsProducts.length - 1]["productStatus"] =
           "new";
         setCategoryWiseProducts(electronicsProducts);
@@ -54,6 +55,7 @@ const ShopByCatagories = () => {
         );
         electronicsProducts1[0]["productStatus"] = "new";
         electronicsProducts1[1]["productStatus"] = "sold out";
+        electronicsProducts1[2]["discount"] = 10;
         electronicsProducts1[electronicsProducts1.length - 1]["productStatus"] =
           "new";
         setCategoryWiseProducts(electronicsProducts1);
@@ -67,6 +69,7 @@ const ShopByCatagories = () => {
         );
         electronicsProducts2[0]["productStatus"] = "new";
         electronicsProducts2[1]["productStatus"] = "sold out";
+        electronicsProducts2[2]["discount"] = 5;
         electronicsProducts2[electronicsProducts2.length - 1]["productStatus"] =
           "new";
         setCategoryWiseProducts(electronicsProducts2);
@@ -80,6 +83,7 @@ const ShopByCatagories = () => {
         );
         electronicsProducts3[0]["productStatus"] = "new";
         electronicsProducts3[1]["productStatus"] = "sold out";
+        electronicsProducts3[2]["discount"] = 15;
         electronicsProducts3[electronicsProducts3.length - 1]["productStatus"] =
           "new";
         setCategoryWiseProducts(electronicsProducts3);
@@ -148,6 +152,7 @@ const ShopByCatagories = () => {
             <ShopByCategoriesProductView
               key={productDetails.id}
               productDetails={productDetails}
+              productIdYesORNot={true}
             />
           ))
         ) : (

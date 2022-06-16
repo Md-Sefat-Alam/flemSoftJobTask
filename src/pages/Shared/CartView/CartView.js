@@ -8,6 +8,7 @@ const CartView = () => {
       style={{
         width: "368px",
         left: "",
+        zIndex: 555,
       }}
       className="cartViewOrNot bg-white text-black p-2 rounded-md shadow-2xl"
     >

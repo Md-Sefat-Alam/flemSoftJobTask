@@ -6,10 +6,10 @@ import TopHeader from "./pages/Shared/TopHeader/TopHeader";
 import Header from "./pages/Shared/Header/Header";
 import Footer from "./pages/Shared/Footer/Footer";
 import Home from "./pages/Home/Home/Home";
+import useAllAppData from "./hooks/useAllAppData";
 
 function App() {
-  // modal open or not
-  const [open, setOpen] = React.useState(true);
+  const { products } = useAllAppData();
   return (
     <div className="App">
       <header className="App-header">
@@ -21,7 +21,7 @@ function App() {
           <Route path="/home" element={<Home />}>
             <Route
               path="product/:productId"
-              element={<ProductView open={open} setOpen={setOpen} />}
+              element={<ProductView products={products} />}
             />
           </Route>
           <Route path="/" element={<Home />} />

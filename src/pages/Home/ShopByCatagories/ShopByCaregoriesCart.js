@@ -1,10 +1,6 @@
 import React from "react";
 
 const ShopByCaregoriesCart = ({ title, icon, categoryBoxSelected }) => {
-  const handleClick = (e) => {
-    // e.stopPropagation();
-    // console.log(e.target.classList.add("categoryBoxSelected"));
-  };
   return (
     <div
       style={{
@@ -18,7 +14,6 @@ const ShopByCaregoriesCart = ({ title, icon, categoryBoxSelected }) => {
           ? "categoryFinding flex flex-col justify-evenly items-center rounded-md bg-gray-100/20 p-4 hover:bg-gray-100/30 cursor-pointer categoryBoxSelected"
           : "categoryFinding flex flex-col justify-evenly items-center rounded-md bg-gray-100/20 p-4 hover:bg-gray-100/30 cursor-pointer"
       }
-      onClick={handleClick}
     >
       <div
         style={{ zIndex: "-11" }}

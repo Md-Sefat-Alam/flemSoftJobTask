@@ -2,8 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, Rating } from "@mui/material";
-import useAllAppData from "../../hooks/useAllAppData";
+import { Button, CircularProgress, Rating } from "@mui/material";
 
 const style = {
   position: "absolute",
@@ -18,8 +17,8 @@ const style = {
   p: 3,
 };
 
-export default function ProductView() {
-  const { products } = useAllAppData();
+export default function ProductView({ products }) {
+  const [isLoading, setIsLoading] = React.useState(false);
   const { productId } = useParams();
   const [quantity, setQuantity] = React.useState(1);
   const navigate = useNavigate();
@@ -27,11 +26,17 @@ export default function ProductView() {
   const [product, setProduct] = React.useState({});
 
   React.useEffect(() => {
-    products.forEach((singleProduct) => {
-      if (singleProduct.id == productId) {
-        setProduct(singleProduct);
+    setIsLoading(true);
+    products.forEach((product) => {
+      if (products.length > 0) {
+        if (product.id === parseInt(productId)) {
+          setProduct(product);
+          setIsLoading(false);
+        }
       }
     });
+
+    setIsLoading(false);
   }, [products]);
   const handleClose = () => {
     navigate(-1);
@@ -45,7 +50,7 @@ export default function ProductView() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          {product?.id ? (
+          {!isLoading && product?.id ? (
             <div className="relative">
               <div className="flex">
                 <div>
@@ -197,6 +202,9 @@ export default function ProductView() {
                   </div>
                 </div>
                 {/* end img show */}
+                <div>
+                  <CircularProgress />
+                </div>
               </div>
               <div
                 onClick={handleClose}

@@ -5,6 +5,7 @@ import InputBase from "@mui/material/InputBase";
 import { Badge, Button, FormControl, MenuItem, Select } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
+import CartView from "../CartView/CartView";
 
 const Header = () => {
   return (
@@ -177,14 +178,15 @@ const Header = () => {
                 </svg>
               </div>
               <div className="px-4">
-                <div className="text-white">
+                <div className="text-white pl-5 relative cartContainer">
                   <Badge
-                    className="cursor-pointer"
+                    className="cursor-pointer "
                     badgeContent={4}
                     color="primary"
                   >
                     <ShoppingCartIcon color="white" />
                   </Badge>
+                  <CartView />
                 </div>
               </div>
             </div>

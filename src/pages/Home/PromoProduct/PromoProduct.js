@@ -1,20 +1,6 @@
-import React, { useRef } from "react";
-import styled from "@emotion/styled";
-import { LinearProgress, linearProgressClasses, Button } from "@mui/material";
-import Countdown from "react-countdown";
-
-const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-  height: 10,
-  borderRadius: 5,
-  [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor:
-      theme.palette?.grey[theme.palette?.mode === "light" ? 200 : 800],
-  },
-  [`& .${linearProgressClasses.bar}`]: {
-    borderRadius: 5,
-    backgroundColor: theme.palette?.mode === "light" ? "#F5F5F5" : "#479622",
-  },
-}));
+import { Button } from "@mui/material";
+import React from "react";
+import BorderLinearProgress from "../../Shared/BorderLinearProgress/BorderLinearProgress";
 
 const PromoProduct = () => {
   const calculatingInMilisecond = (

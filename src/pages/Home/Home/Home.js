@@ -11,7 +11,7 @@ import ShopByCatagories from "../ShopByCatagories/ShopByCatagories";
 import TechnologySection from "../TechnologySection/TechnologySection";
 import WatchSection from "../WatchSection/WatchSection";
 
-const Home = () => {
+const Home = ({ getDataFromLocalStorage }) => {
   return (
     <div className="">
       <section
@@ -37,7 +37,7 @@ const Home = () => {
       <section
         style={{ width: "1160px", margin: "20px auto", paddingBottom: "30px" }}
       >
-        <TechnologySection />
+        <TechnologySection getDataFromLocalStorage={getDataFromLocalStorage} />
       </section>
       {/* end Technology Section*/}
       <section

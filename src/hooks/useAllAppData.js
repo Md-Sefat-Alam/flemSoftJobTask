@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { getStoredCart } from "../pages/utilities/useLocalStorage";
 import { luxuryFoodData } from "./data";
 
 const useAllAppData = () => {
   const [products, setProducts] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
+  const [cartData, setCartData] = useState(0);
 
   const getCategoryWiseData = (category) => {
     switch (category) {
@@ -82,6 +85,36 @@ const useAllAppData = () => {
     }
   };
 
+  const getDataFromLocalStorage = () => {
+    const cartData = getStoredCart();
+    let tempCartData = [];
+    for (const key in cartData) {
+      products.forEach((product) => {
+        if (product.id === parseInt(key)) {
+          product["quantity"] = cartData[key];
+          tempCartData.push(product);
+        }
+      });
+    }
+    setCartData(tempCartData);
+  };
+
+  useEffect(() => {
+    if (products.length > 0) {
+      const cartData = getStoredCart();
+      let tempCartData = [];
+      for (const key in cartData) {
+        products.forEach((product) => {
+          if (product.id === parseInt(key)) {
+            product["quantity"] = cartData[key];
+            tempCartData.push(product);
+          }
+        });
+      }
+      setCartData(tempCartData);
+    }
+  }, []);
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
@@ -94,6 +127,9 @@ const useAllAppData = () => {
     products,
     setProducts,
     getCategoryWiseData,
+    getDataFromLocalStorage,
+    cartCount,
+    cartData,
   };
 };
 

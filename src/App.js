@@ -9,19 +9,32 @@ import Home from "./pages/Home/Home/Home";
 import useAllAppData from "./hooks/useAllAppData";
 
 function App() {
-  const { products } = useAllAppData();
+  const { products, getDataFromLocalStorage, cartData } = useAllAppData();
   return (
     <div className="App">
       <header className="App-header">
         <TopHeader />
-        <Header />
+        <Header
+          getDataFromLocalStorage={getDataFromLocalStorage}
+          cartData={cartData}
+          products={products}
+        />
       </header>
       <div style={{ minHeight: "70vh" }}>
         <Routes>
-          <Route path="/home" element={<Home />}>
+          <Route
+            path="/home"
+            element={<Home getDataFromLocalStorage={getDataFromLocalStorage} />}
+          >
             <Route
               path="product/:productId"
-              element={<ProductView products={products} />}
+              element={
+                <ProductView
+                  getDataFromLocalStorage={getDataFromLocalStorage}
+                  cartData={cartData}
+                  products={products}
+                />
+              }
             />
           </Route>
           <Route path="/" element={<Home />} />

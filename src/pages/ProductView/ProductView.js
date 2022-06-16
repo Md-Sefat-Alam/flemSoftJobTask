@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, CircularProgress, Rating } from "@mui/material";
+import { addToDb } from "../utilities/useLocalStorage";
+import useAllAppData from "../../hooks/useAllAppData";
 
 const style = {
   position: "absolute",
@@ -17,7 +19,7 @@ const style = {
   p: 3,
 };
 
-export default function ProductView({ products }) {
+export default function ProductView({ products, getDataFromLocalStorage }) {
   const [isLoading, setIsLoading] = React.useState(false);
   const { productId } = useParams();
   const [quantity, setQuantity] = React.useState(1);
@@ -40,6 +42,13 @@ export default function ProductView({ products }) {
   }, [products]);
   const handleClose = () => {
     navigate(-1);
+  };
+
+  const handleAddToCart = () => {
+    addToDb(parseInt(productId));
+    getDataFromLocalStorage();
+    handleClose();
+    alert("Added to cart");
   };
   return (
     <div>
@@ -167,6 +176,7 @@ export default function ProductView({ products }) {
                           width: "120px",
                         }}
                         variant="contained"
+                        onClick={handleAddToCart}
                       >
                         Buy
                       </Button>

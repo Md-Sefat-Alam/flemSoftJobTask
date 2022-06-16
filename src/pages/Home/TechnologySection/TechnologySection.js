@@ -4,8 +4,9 @@ import { Button } from "@mui/material";
 import useAllAppData from "../../../hooks/useAllAppData";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { addToDb } from "../../utilities/useLocalStorage";
 
-const TechnologySection = () => {
+const TechnologySection = ({ getDataFromLocalStorage }) => {
   const { products, getCategoryWiseData } = useAllAppData();
   const [electronicProducts, setElectronicsProducts] = useState([]);
   useEffect(() => {
@@ -77,6 +78,11 @@ const TechnologySection = () => {
                       textTransform: "capitalize",
                     }}
                     variant="contained"
+                    onClick={() => {
+                      addToDb(product.id);
+                      getDataFromLocalStorage();
+                      alert("Added to cart");
+                    }}
                   >
                     Add To Cart
                   </Button>
